@@ -1,8 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 const db = require("../models");
-const { default: mongoose } = require("mongoose");
+const mongoose_1 = __importDefault(require("mongoose"));
 //swap with userid
-const userId = "63b33ccec20f539a4e118695";
+const userId = "63b33df923594098b9020545";
 db.Post.create([{
         title: "Test Title",
         user: userId,
@@ -12,5 +16,5 @@ db.Post.create([{
     }])
     .then(() => {
     console.log("Successfuly seeded posts");
-    mongoose.connection.close();
+    mongoose_1.default.connection.close();
 });

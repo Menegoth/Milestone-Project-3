@@ -16,6 +16,14 @@ app.get("/", (req: Request, res: Response): void => {
     });
 });
 
+//controllers
+// /authentication
+// app.use("/authentication", require("./controllers/authentication"));
+
+// /users
+app.use("/users", require("./controllers/users"));
+
+
 app.listen(PORT, () => {
     console.log(`Running on port ${PORT}`)
 })

@@ -1,5 +1,5 @@
 const db = require("../models");
-const { default: mongoose } = require("mongoose");
+import { default as mongoose } from "mongoose";
 
 //swap with userid
 const userId = "63b33df923594098b9020545";

@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
+//roles enum
+var roles;
+(function (roles) {
+    roles["admin"] = "admin";
+    roles["user"] = "user";
+})(roles || (roles = {}));
 //schema
 const userSchema = new mongoose_1.Schema({
     username: {
@@ -11,6 +17,11 @@ const userSchema = new mongoose_1.Schema({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        default: roles.user,
+        enum: Object.values(roles)
     }
 }, { toJSON: { virtuals: true } });
 //posts virtual

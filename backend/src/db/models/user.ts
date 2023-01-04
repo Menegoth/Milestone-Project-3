@@ -1,9 +1,16 @@
 import { Schema, model } from "mongoose"
 
+//roles enum
+enum roles {
+    admin = "admin",
+    user = "user"
+}
+
 //user interface
 interface IUser {
     username: string,
-    password: string
+    password: string,
+    role: string
 }
 
 //schema
@@ -16,6 +23,11 @@ const userSchema = new Schema<IUser>({
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+        default: "roles.user",
+        enum: Object.values(roles)
     }
 }, { toJSON: { virtuals: true } } )
 
