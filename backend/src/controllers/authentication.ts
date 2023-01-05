@@ -7,7 +7,7 @@ import jwt, { JwtPayload } from "jsonwebtoken";
 
 const { User } = db;
 
-//post /
+//post /authentication
 //login
 router.post("/", async (req: Request, res: Response): Promise<void> => {
     try {
@@ -35,7 +35,7 @@ interface IToken {
     _id: string
 }
 
-// get /profile
+// get /authentication/profile
 // get profile with a JWT using "Authentication: Bearer ${token}" in the header
 router.get("/profile", async (req: Request, res: Response): Promise<void> => {
     try {

@@ -5,7 +5,7 @@ import bcrypt from "bcrypt";
 
 const { User, Post } = db;
 
-//post to /
+//post to /users
 //create new user
 router.post("/", async (req: Request, res: Response): Promise<void> => {
     try {
@@ -35,7 +35,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 
         res.status(500).json(String(err));
     }
-})
+});
 
 //put /users/cart
 //add a post to the cart
@@ -67,8 +67,8 @@ router.put("/cart", async (req: Request, res: Response): Promise<void> => {
         } 
 
         //populate cart field
-        user.cart.push(post._id);
-        user.save();
+        await user.cart.push(post._id);
+        await user.save();
 
         res.status(200).json({
             message: "Post added to cart"
@@ -81,9 +81,41 @@ router.put("/cart", async (req: Request, res: Response): Promise<void> => {
         }
         res.status(500).json(String(err))
     }
-})
+});
 
-//get /
+//get /users/cart
+//get all items in a user's cart
+router.get("/cart", async (req: Request, res: Response): Promise<void> => {
+    try {
+        //error if argument not passed
+        if (!req.body.id) {
+            throw new Error("requires a user ID");
+        }
+
+        const user = await User.findById(req.body.id);
+        //error 404 if user not found
+        if (!user) {
+            res.status(404).json({
+                error: "user not found"
+            });
+            return;
+        }
+
+        //populate cart and return items in cart
+        await user.populate("cart");
+        res.status(200).json(user.cart);
+        
+    } catch(err) {
+        //check if casterror
+        if (String(err).includes("CastError")) {
+            err = "Error: invalid ObjectId"
+        }
+
+        res.status(500).json(String(err));
+    }
+});
+
+//get /users
 //get a list of all users, testing only
 router.get("/", async (req: Request, res: Response): Promise<void> => {
     try {
@@ -92,7 +124,7 @@ router.get("/", async (req: Request, res: Response): Promise<void> => {
     } catch (err: unknown) {
         res.status(500).json(err);
     }
-})
+});
 
 //export
 module.exports = router;

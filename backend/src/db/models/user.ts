@@ -34,14 +34,7 @@ const userSchema = new Schema<IUser>({
         type: Schema.Types.ObjectId,
         ref: "Post"
     }]
-}/*, { toJSON: { virtuals: true } }*/ )
-
-//posts virtual
-// userSchema.virtual("shopping cart", {
-//     ref: "Post",
-//     localField: "_id",
-//     foreignField: "user"
-// })
+})
 
 //create model
 //export
