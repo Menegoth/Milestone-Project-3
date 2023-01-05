@@ -2,7 +2,7 @@ const db = require("../models");
 import { default as mongoose } from "mongoose";
 
 //swap with userid
-const userId = "63b33df923594098b9020545";
+const userId = "63b648697f310eb2367fdd08";
 
 db.Post.create([{
     title: "Test Title",

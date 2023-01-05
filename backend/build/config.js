@@ -23,10 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.mongo_uri = exports.port = void 0;
+exports.jwt_secret = exports.mongo_uri = exports.port = void 0;
 const dotenv = __importStar(require("dotenv"));
 dotenv.config({
     path: `${__dirname}/../.env`
 });
-exports.port = Number(process.env.API_PORT);
+exports.port = Number(process.env.PORT);
 exports.mongo_uri = String(process.env.MONGO_URI);
+exports.jwt_secret = String(process.env.JWT_SECRET);

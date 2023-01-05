@@ -14,6 +14,6 @@ db.User.create([
     }
 ])
 .then(() => {
-    console.log("Successfuly seeded users");
+    console.log("Successfuly seeded admin");
     mongoose.connection.close();
 })

@@ -39,21 +39,24 @@ interface IToken {
 // get profile with a JWT using "Authentication: Bearer ${token}" in the header
 router.get("/profile", async (req: Request, res: Response): Promise<void> => {
     try {
+        //get token from header
         const token = req.header("Authorization")?.replace("Bearer ", "");
         if (!token) {
             res.status(404).json("Not found");
             return;
         }
 
+        //get user id from token
         const decoded = jwt.verify(token, jwt_secret);
         const id = (decoded as IToken)._id
 
+        //send user data back if matched
         const user = await User.findById(id);
         res.status(200).json(user);
     } catch (err) {
-        res.status(500).json(null)
+        res.status(500).json(null);
     }
-})
+});
 
 //export
 module.exports = router;

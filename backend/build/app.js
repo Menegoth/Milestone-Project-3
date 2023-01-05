@@ -7,8 +7,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
 //config
-require("dotenv").config({ path: ".env" });
-const PORT = process.env.PORT;
+const config_1 = require("./config");
 const app = (0, express_1.default)();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
@@ -20,9 +19,10 @@ app.get("/", (req, res) => {
 });
 //controllers
 // /authentication
-// app.use("/authentication", require("./controllers/authentication"));
+app.use("/authentication", require("./controllers/authentication"));
 // /users
 app.use("/users", require("./controllers/users"));
-app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`);
+// post
+app.listen(config_1.port, () => {
+    console.log(`Running on port ${config_1.port}`);
 });

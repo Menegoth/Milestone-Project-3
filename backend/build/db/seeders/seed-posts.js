@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const db = require("../models");
 const mongoose_1 = __importDefault(require("mongoose"));
 //swap with userid
-const userId = "63b33df923594098b9020545";
+const userId = "63b648697f310eb2367fdd08";
 db.Post.create([{
         title: "Test Title",
         user: userId,

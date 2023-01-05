@@ -34,7 +34,7 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     catch (err) {
         console.log(err);
         res.status(500).json({
-            message: "Error"
+            message: "Duplicate Username"
         });
     }
 }));

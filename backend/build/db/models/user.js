@@ -20,12 +20,12 @@ const userSchema = new mongoose_1.Schema({
     },
     role: {
         type: String,
-        default: "roles.user",
+        default: roles.user,
         enum: Object.values(roles)
     }
 }, { toJSON: { virtuals: true } });
 //posts virtual
-userSchema.virtual("posts", {
+userSchema.virtual("shopping cart", {
     ref: "Post",
     localField: "_id",
     foreignField: "user"
