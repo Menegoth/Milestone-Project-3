@@ -1,9 +1,9 @@
 import React from 'react'
 
-const addTrip = () => {
+const AddTrip = () => {
   return (
     <div>addTrip</div>
   )
 }
 
-export default addTrip
+export default AddTrip
