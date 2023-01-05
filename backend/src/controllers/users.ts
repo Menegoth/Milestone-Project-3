@@ -9,6 +9,11 @@ const { User, Post } = db;
 //create new user
 router.post("/", async (req: Request, res: Response): Promise<void> => {
     try {
+        //error if incorrect arguments
+        if (!req.body.username || !req.body.password) {
+            throw new Error("requires both username and password to create an account");
+        }
+
         //get username and password from request body
         const password = req.body.password;
         const username = req.body.username;
@@ -22,11 +27,13 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 
         res.status(200).json(user)
 
-    } catch (err: unknown) {
-        console.log(err);
-        res.status(500).json({
-            message: "Duplicate Username"
-        })
+    } catch (err) {
+        //duplicate username error
+        if (String(err).includes("duplicate key error")) {
+            err = "Error: duplicate username"
+        }
+
+        res.status(500).json(String(err));
     }
 })
 
@@ -34,21 +41,29 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
 //add a post to the cart
 router.put("/cart", async (req: Request, res: Response): Promise<void> => {
     try {
-        //check if passed both ids
+        //error if incorrect arguments
         if (!req.body.userId || !req.body.postId) {
             throw new Error("requires both a post and user id")
         }
         
         //find a user and check if it exists
+        //404 error if not found
         const user = await User.findById(req.body.userId);
         if (!user) {
-            throw new Error("user not found")
+            res.status(404).json({
+                error: "user not found"
+            });
+            return;
         }
 
         //check if post exists
+        //404 error if not found
         const post = await Post.findById(req.body.postId);
         if (!post) {
-            throw new Error("post not found")
+            res.status(404).json({
+                error: "post not found"
+            });
+            return;
         } 
 
         //populate cart field
@@ -60,7 +75,10 @@ router.put("/cart", async (req: Request, res: Response): Promise<void> => {
         })
 
     } catch (err) {
-        console.log(err)
+        //check if casterror
+        if (String(err).includes("CastError")) {
+            err = "Error: invalid ObjectId"
+        }
         res.status(500).json(String(err))
     }
 })

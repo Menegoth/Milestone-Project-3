@@ -17,15 +17,15 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
         });
 
         //check password
+        //return 404 if invalid username or password
         if (!user || !await bcrypt.compare(req.body.password, user.password)) {
-            console.log("test")
-            res.status(404).json("Invalid username or password")
+            res.status(404).json("Invalid username or password");
         } else {
             //create jwt and send token
             const result = jwt.sign({_id: user._id.toString()}, jwt_secret);
             res.status(200).json({user: user, token: result})
         }
-    } catch (err: unknown) {
+    } catch (err) {
         res.status(500).json(err);
     }
 });
@@ -42,8 +42,8 @@ router.get("/profile", async (req: Request, res: Response): Promise<void> => {
         //get token from header
         const token = req.header("Authorization")?.replace("Bearer ", "");
         if (!token) {
-            res.status(404).json("Not found");
-            return;
+            //error if token is empty
+            throw new Error();
         }
 
         //get user id from token
@@ -51,9 +51,11 @@ router.get("/profile", async (req: Request, res: Response): Promise<void> => {
         const id = (decoded as IToken)._id
 
         //send user data back if matched
+        //if no user was found, data will return null
         const user = await User.findById(id);
         res.status(200).json(user);
     } catch (err) {
+        //return no data if no token was found
         res.status(500).json(null);
     }
 });
