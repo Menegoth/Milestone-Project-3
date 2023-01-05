@@ -3,7 +3,7 @@ const db = require("../db/models");
 import { jwt_secret } from "../config"
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+import jwt, { JwtPayload } from "jsonwebtoken";
 
 const { User } = db;
 
@@ -29,6 +29,31 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
         res.status(500).json(err);
     }
 });
+
+//jwt interface
+interface IToken {
+    _id: string
+}
+
+// get /profile
+// get profile with a JWT using "Authentication: Bearer ${token}" in the header
+router.get("/profile", async (req: Request, res: Response): Promise<void> => {
+    try {
+        const token = req.header("Authorization")?.replace("Bearer ", "");
+        if (!token) {
+            res.status(404).json("Not found");
+            return;
+        }
+
+        const decoded = jwt.verify(token, jwt_secret);
+        const id = (decoded as IToken)._id
+
+        const user = await User.findById(id);
+        res.status(200).json(user);
+    } catch (err) {
+        res.status(500).json(null)
+    }
+})
 
 //export
 module.exports = router;
