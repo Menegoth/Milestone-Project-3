@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose"
+import { Schema, model, ObjectId } from "mongoose"
 
 //roles enum
 enum roles {
@@ -10,7 +10,8 @@ enum roles {
 interface IUser {
     username: string,
     password: string,
-    role: string
+    role: string,
+    cart: Schema.Types.ObjectId[]
 }
 
 //schema
@@ -28,15 +29,19 @@ const userSchema = new Schema<IUser>({
         type: String,
         default: roles.user,
         enum: Object.values(roles)
-    }
-}, { toJSON: { virtuals: true } } )
+    },
+    cart: [{
+        type: Schema.Types.ObjectId,
+        ref: "Post"
+    }]
+}/*, { toJSON: { virtuals: true } }*/ )
 
 //posts virtual
-userSchema.virtual("shopping cart", {
-    ref: "Post",
-    localField: "_id",
-    foreignField: "user"
-})
+// userSchema.virtual("shopping cart", {
+//     ref: "Post",
+//     localField: "_id",
+//     foreignField: "user"
+// })
 
 //create model
 //export

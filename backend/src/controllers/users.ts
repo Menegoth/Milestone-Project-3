@@ -3,7 +3,7 @@ const db = require("../db/models");
 import { Request, Response } from "express"
 import bcrypt from "bcrypt";
 
-const { User } = db;
+const { User, Post } = db;
 
 //post to /
 //create new user
@@ -27,6 +27,41 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
         res.status(500).json({
             message: "Duplicate Username"
         })
+    }
+})
+
+//put /users/cart
+//add a post to the cart
+router.put("/cart", async (req: Request, res: Response): Promise<void> => {
+    try {
+        //check if passed both ids
+        if (!req.body.userId || !req.body.postId) {
+            throw new Error("requires both a post and user id")
+        }
+        
+        //find a user and check if it exists
+        const user = await User.findById(req.body.userId);
+        if (!user) {
+            throw new Error("user not found")
+        }
+
+        //check if post exists
+        const post = await Post.findById(req.body.postId);
+        if (!post) {
+            throw new Error("post not found")
+        } 
+
+        //populate cart field
+        user.cart.push(post._id);
+        user.save();
+
+        res.status(200).json({
+            message: "Post added to cart"
+        })
+
+    } catch (err) {
+        console.log(err)
+        res.status(500).json(String(err))
     }
 })
 
