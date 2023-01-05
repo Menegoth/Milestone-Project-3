@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 //controllers
 // /authentication
-app.use("/authentication", require("./controllers/authentication"));
+// app.use("/authentication", require("./controllers/authentication"));
 // /users
 app.use("/users", require("./controllers/users"));
 app.listen(PORT, () => {

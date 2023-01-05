@@ -3,8 +3,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 
 //config
-require("dotenv").config({path: ".env"});
-const PORT = process.env.PORT;
+import { port } from "./config"
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -18,12 +17,12 @@ app.get("/", (req: Request, res: Response): void => {
 
 //controllers
 // /authentication
-// app.use("/authentication", require("./controllers/authentication"));
+app.use("/authentication", require("./controllers/authentication"));
 
 // /users
 app.use("/users", require("./controllers/users"));
 
 
-app.listen(PORT, () => {
-    console.log(`Running on port ${PORT}`)
+app.listen(port, () => {
+    console.log(`Running on port ${port}`)
 })
