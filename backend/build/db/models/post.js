@@ -7,10 +7,6 @@ const postSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    user: {
-        type: String,
-        required: true
-    },
     content: {
         type: String,
         required: true

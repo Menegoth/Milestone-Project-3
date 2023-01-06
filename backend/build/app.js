@@ -14,7 +14,7 @@ app.use(express_1.default.json());
 //GET / 
 app.get("/", (req, res) => {
     res.json({
-        message: "Testing"
+        message: "/posts, /users, /authentication for functionality"
     });
 });
 //controllers
