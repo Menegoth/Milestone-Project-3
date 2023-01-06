@@ -60,7 +60,7 @@ POST http://localhost:3000/posts
 //on failure should return null
 //use jwt from previously created user
 GET http://localhost:3000/authentication/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NWY3YzdiMjNhNzNiYWZkZDUxYzgiLCJpYXQiOjE2NzMwMjg0MTd9.PMr2BxMgOd8bIAmaywZbNeqCMKwM2oWuIxWp2Xqgx6o
+Authorization: Bearer {token}
 //on success should return user information
 
 ###
@@ -77,7 +77,7 @@ Content-Type: application/json
     "content": "Test Content",
     "price": 12,
     "image": "Test Image",
-    "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NWY3YzdiMjNhNzNiYWZkZDUxYzgiLCJpYXQiOjE2NzMwMjg0MTd9.PMr2BxMgOd8bIAmaywZbNeqCMKwM2oWuIxWp2Xqgx6o"
+    "jwt_token": "{token}"
 }
 //on success, should create post
 
@@ -91,7 +91,7 @@ GET http://localhost:3000/posts
 
 //get post by ID
 //use post id in URL
-GET http://localhost:3000/posts/63b864563cdce242204576e6
+GET http://localhost:3000/posts/{post_id}
 //should return post info
 
 ###
@@ -104,8 +104,8 @@ PUT http://localhost:3000/users/cart
 Content-Type: application/json
 
 {
-    "userId": "63b85f7c7b23a73bafdd51c8",
-    "postId": "63b864563cdce242204576e6"
+    "userId": "{user_id}",
+    "postId": "{post_id}"
 }
 //on success, adds post to cart
 
@@ -114,5 +114,5 @@ Content-Type: application/json
 //get all items from a user's cart
 //missing or invalid user id results in error
 //use user id from previous tests
-GET http://localhost:3000/users/63b85f7c7b23a73bafdd51c8/cart
+GET http://localhost:3000/users/{user_id}/cart
 //on success expect list of all posts in cart
