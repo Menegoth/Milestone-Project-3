@@ -1,6 +1,6 @@
 //this file is using the rest client extension from VSCode
 
-
+//index page
 GET http://localhost:3000/
 //expect "Testing"
 

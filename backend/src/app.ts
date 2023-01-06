@@ -11,7 +11,7 @@ app.use(express.json());
 //GET / 
 app.get("/", (req: Request, res: Response): void => {
     res.json({
-        message: "Testing"
+        message: "/posts, /users, /authentication for functionality"
     });
 });
 
