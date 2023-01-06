@@ -91,7 +91,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
             return;
 
         } else {
-            throw new Error("Error: user does not have permission to create a new post")
+            throw new Error("user does not have permission to create a new post")
         }
 
 
