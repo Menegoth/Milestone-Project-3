@@ -25,7 +25,7 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
             password: await bcrypt.hash(password, 10)
         })
 
-        res.status(200).json(user)
+        res.status(200).json(user);
 
     } catch (err) {
         //duplicate username error
@@ -85,14 +85,14 @@ router.put("/cart", async (req: Request, res: Response): Promise<void> => {
 
 //get /users/cart
 //get all items in a user's cart
-router.get("/cart", async (req: Request, res: Response): Promise<void> => {
+router.get("/:id/cart", async (req: Request, res: Response): Promise<void> => {
     try {
         //error if argument not passed
-        if (!req.body.id) {
+        if (!req.params.id) {
             throw new Error("requires a user ID");
         }
 
-        const user = await User.findById(req.body.id);
+        const user = await User.findById(req.params.id);
         //error 404 if user not found
         if (!user) {
             res.status(404).json({

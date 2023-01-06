@@ -18,7 +18,7 @@ const config_1 = require("../config");
 const bcrypt_1 = __importDefault(require("bcrypt"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 const { User } = db;
-//post /
+//post /authentication
 //login
 router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -27,8 +27,8 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             username: req.body.username
         });
         //check password
+        //return 404 if invalid username or password
         if (!user || !(yield bcrypt_1.default.compare(req.body.password, user.password))) {
-            console.log("test");
             res.status(404).json("Invalid username or password");
         }
         else {
@@ -41,7 +41,7 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(500).json(err);
     }
 }));
-// get /profile
+// get /authentication/profile
 // get profile with a JWT using "Authentication: Bearer ${token}" in the header
 router.get("/profile", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
@@ -49,17 +49,19 @@ router.get("/profile", (req, res) => __awaiter(void 0, void 0, void 0, function*
         //get token from header
         const token = (_a = req.header("Authorization")) === null || _a === void 0 ? void 0 : _a.replace("Bearer ", "");
         if (!token) {
-            res.status(404).json("Not found");
-            return;
+            //error if token is empty
+            throw new Error();
         }
         //get user id from token
         const decoded = jsonwebtoken_1.default.verify(token, config_1.jwt_secret);
         const id = decoded._id;
         //send user data back if matched
+        //if no user was found, data will return null
         const user = yield User.findById(id);
         res.status(200).json(user);
     }
     catch (err) {
+        //return no data if no token was found
         res.status(500).json(null);
     }
 }));

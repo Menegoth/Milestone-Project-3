@@ -22,13 +22,11 @@ const userSchema = new mongoose_1.Schema({
         type: String,
         default: roles.user,
         enum: Object.values(roles)
-    }
-}, { toJSON: { virtuals: true } });
-//posts virtual
-userSchema.virtual("shopping cart", {
-    ref: "Post",
-    localField: "_id",
-    foreignField: "user"
+    },
+    cart: [{
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: "Post"
+        }]
 });
 //create model
 //export

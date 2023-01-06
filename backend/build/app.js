@@ -22,7 +22,8 @@ app.get("/", (req, res) => {
 app.use("/authentication", require("./controllers/authentication"));
 // /users
 app.use("/users", require("./controllers/users"));
-// post
+// /post
+app.use("/posts", require("./controllers/posts"));
 app.listen(config_1.port, () => {
     console.log(`Running on port ${config_1.port}`);
 });

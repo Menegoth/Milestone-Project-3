@@ -3,7 +3,7 @@ const db = require("../db/models");
 import { jwt_secret } from "../config"
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import jwt, { JwtPayload } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
 const { User } = db;
 
