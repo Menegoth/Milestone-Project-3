@@ -1,0 +1,118 @@
+GET http://localhost:3000/
+//expect "Testing"
+
+###
+
+//attempt to create a user
+//missing body should result in an error
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "Test User",
+    "password": "Test",
+    "role": "admin"
+}
+//on success, should only be normal user
+
+###
+
+//attempt to create user with same username
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+    "username": "Test User",
+    "password": "Test",
+    "role": "admin"
+}
+//expect failure
+
+###
+
+//get a list of all users
+GET http://localhost:3000/users
+//expect list of all users, testing only
+
+###
+
+//attempt to login with correct credentials
+///incorrect username or password should return error
+//save JWT for future tests
+POST http://localhost:3000/authentication
+Content-Type: application/json
+
+{
+    "username": "Test User",
+    "password": "Test"
+}
+//on success, returns user and jwt token
+
+###
+
+//attempt to create a post
+POST http://localhost:3000/posts
+//expect failure
+
+###
+
+//attempt to get profile using jwt
+//on failure should return null
+//use jwt from previously created user
+GET http://localhost:3000/authentication/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NWY3YzdiMjNhNzNiYWZkZDUxYzgiLCJpYXQiOjE2NzMwMjg0MTd9.PMr2BxMgOd8bIAmaywZbNeqCMKwM2oWuIxWp2Xqgx6o
+//on success should return user information
+
+###
+
+###
+//attempt to create a post with non-admin
+//use JWT from previous test
+//if failure, change user to admin and check
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "Test Title",
+    "content": "Test Content",
+    "price": 12,
+    "image": "Test Image",
+    "jwt_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I4NWY3YzdiMjNhNzNiYWZkZDUxYzgiLCJpYXQiOjE2NzMwMjg0MTd9.PMr2BxMgOd8bIAmaywZbNeqCMKwM2oWuIxWp2Xqgx6o"
+}
+//on success, should create post
+
+### 
+
+//get all posts
+GET http://localhost:3000/posts
+//should return list of all posts
+
+###
+
+//get post by ID
+//use post id in URL
+GET http://localhost:3000/posts/63b864563cdce242204576e6
+//should return post info
+
+###
+
+//add a post to a user's cart
+//missing params result in an error
+//incorrect or invalid IDs result in error
+//use post and user id from previous tests
+PUT http://localhost:3000/users/cart
+Content-Type: application/json
+
+{
+    "userId": "63b85f7c7b23a73bafdd51c8",
+    "postId": "63b864563cdce242204576e6"
+}
+//on success, adds post to cart
+
+###
+
+//get all items from a user's cart
+//missing or invalid user id results in error
+//use user id from previous tests
+GET http://localhost:3000/users/63b85f7c7b23a73bafdd51c8/cart
+//on success expect list of all posts in cart
