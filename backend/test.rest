@@ -67,8 +67,6 @@ Authorization: Bearer {token}
 //on success should return user information
 
 ###
-
-###
 //attempt to create a post with non-admin
 //use JWT from previous test
 //if failure, change user to admin and check

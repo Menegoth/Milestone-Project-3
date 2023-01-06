@@ -2,6 +2,8 @@ const router = require("express").Router();
 const db = require("../db/models");
 import { Request, Response } from "express"
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"
+import { jwt_secret } from "../config";
 
 const { User, Post } = db;
 
@@ -25,7 +27,9 @@ router.post("/", async (req: Request, res: Response): Promise<void> => {
             password: await bcrypt.hash(password, 10)
         })
 
-        res.status(200).json(user);
+        //create and return user + jwt on succesful sign-up
+        const result = jwt.sign({_id: user._id.toString()}, jwt_secret);
+        res.status(200).json({user: user, token: result})
 
     } catch (err) {
         //duplicate username error
