@@ -7,7 +7,7 @@ const Login = () => {
     <div>
       <form>
         <Box display="flex" flexDirection={'column'} alignItems="center" justifyContent={"center" }boxShadow="10px 10px 20px #ccc" padding={3} margin='auto' marginTop={5} borderRadius={5} maxWidth={400}>
-          <Typography padding={3} textAlign="center" variant="h2">Login</Typography>
+          <Typography padding={3} textAlign="center" variant="h2">{isSignup ? "Signup" : "Login"}</Typography>
           {isSignup && <TextField margin="normal" placeholder='Name'/>}
           <TextField margin="normal" placeholder='Email' type={'email'}/>
           <TextField margin="normal" placeholder='Password' type={'password'}/>
