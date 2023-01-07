@@ -7,6 +7,7 @@ import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 
 
+
 const Header = () => {
   
   return <AppBar position='sticky' sx={{height:85, background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,75,200,1) 27%, rgba(214,8,8,1) 52%, rgba(5,17,232,1) 73%, rgba(8,8,8,1) 100%);"}}>

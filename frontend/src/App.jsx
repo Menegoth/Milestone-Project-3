@@ -7,16 +7,20 @@ import TripDetail from './components/TripDetail';
 import {useSelector} from 'react-redux'
 import LogoutButton from './components/LogoutButton';
 import LoginButton from './components/LoginButton';
-
+import Profile from './components/Profile';
+import Slides from './components/Carousel';
 
 
 function App() {
  
   return <React.Fragment>
     <header>
-      <Header/>
+      
     </header>
-    <main>
+      <main>
+        <Home/>
+        
+      
       <Routes>
         
         <Route path="/home" element={<Home/>}/>
