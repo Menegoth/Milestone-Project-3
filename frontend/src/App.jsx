@@ -11,6 +11,7 @@ import Profile from './components/Profile';
 import Slides from './components/Carousel';
 
 
+
 function App() {
  
   return <React.Fragment>
@@ -19,8 +20,6 @@ function App() {
     </header>
       <main>
         <Home/>
-        
-      
       <Routes>
         
         <Route path="/home" element={<Home/>}/>
