@@ -3,7 +3,7 @@ import Carousel from 'react-material-ui-carousel'
 import Item from './Item';
 import { CarouselData } from './CarouselData';
 
-function Example() {
+function Slides() {
 
     return (
         <Carousel>
@@ -14,5 +14,5 @@ function Example() {
     )
 }
 
-export default Example
+export default Slides
 

@@ -1,12 +1,10 @@
 import React from 'react';
-import Header from './components/Header';
-import Carousel from './components/Carousel';
+import Home from './components/Home';
 
 function App() {
   return <React.Fragment>
-    <header><Header/></header>
     <main>
-      <Carousel/>
+      <Home />
     </main>
   </React.Fragment>
 }
