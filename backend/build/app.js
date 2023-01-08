@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
         message: "/posts, /users, /authentication for functionality"
     });
 });
+
 //controllers
 // /authentication
 app.use("/authentication", require("./controllers/authentication"));
@@ -27,3 +28,9 @@ app.use("/posts", require("./controllers/posts"));
 app.listen(config_1.port, () => {
     console.log(`Running on port ${config_1.port}`);
 });
+
+// Serve frontend
+// serve static front end in production mode
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, 'client', 'build')));
+}

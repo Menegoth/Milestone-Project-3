@@ -28,3 +28,4 @@ app.use("/posts", require("./controllers/posts"));
 app.listen(port, () => {
     console.log(`Running on port ${port}`)
 })
+
