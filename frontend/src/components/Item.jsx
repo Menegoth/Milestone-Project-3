@@ -8,7 +8,7 @@ function Item({item})
             <img src={item.image} alt='travel' style={{width:'100%', height:'50vh'}}/>
             <Typography></Typography>
 
-            <Button className='CheckButton'>
+            <Button className='CheckButton' sx={{margin:'auto'}}>
                 Test Button
             </Button>
         </Paper>

@@ -5,7 +5,8 @@ import Slides from './Carousel';
 const Home = () => {
   return (
     <main>
-      <Slides />
+    
+    <Slides/>
     </main>
   )
 }

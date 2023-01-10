@@ -15,6 +15,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const router = require("express").Router();
 const db = require("../db/models");
 const bcrypt_1 = __importDefault(require("bcrypt"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const config_1 = require("../config");
 const { User, Post } = db;
 //post to /users
 //create new user
@@ -33,7 +35,9 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             role: "user",
             password: yield bcrypt_1.default.hash(password, 10)
         });
-        res.status(200).json(user);
+        //create and return user + jwt on succesful sign-up
+        const result = jsonwebtoken_1.default.sign({ _id: user._id.toString() }, config_1.jwt_secret);
+        res.status(200).json({ user: user, token: result });
     }
     catch (err) {
         //duplicate username error
