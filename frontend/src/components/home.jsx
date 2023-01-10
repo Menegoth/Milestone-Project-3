@@ -1,13 +1,11 @@
 import React from 'react'
-import Header from './Header';
 import Slides from './Carousel';
-
+// import { Typography, Paper, Grid } from '@mui/material'
 
 const Home = () => {
   return (
     <main>
-    <Header/>
-    <Slides/>
+      <Slides />
     </main>
   )
 }

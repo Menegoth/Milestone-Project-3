@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import Home from './components/Home';
-
-function App() {
-  return <React.Fragment>
-    <main>
-      <Home />
-    </main>
-  </React.Fragment>
-=======
 import Header from './components/Header';
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
@@ -41,7 +30,6 @@ function App() {
       </Routes>
     </main>
   </React.Fragment>;
->>>>>>> e3122159fd7159a2b49d8aeeaaac3d8169c893f3
 }
 
 export default App;
