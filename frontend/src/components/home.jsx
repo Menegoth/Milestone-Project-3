@@ -12,17 +12,17 @@ const Home = () => {
       Welcome to ManCations, where we take the hassle out of planning your weekend getaway!
       </Typography>
       <Grid container style={{direction:'column', justifyContent:'center', alignItems:'center'}}>
-        <Grid item xs m={4}>
-          <Paper>Package 1</Paper>
+        <Grid item xs= {6} >
+          <Paper>The Basics</Paper>
         </Grid>
-        <Grid item xs m={4}>
-          <Paper>Package 2</Paper>
+        <Grid item xs= {6}>
+          <Paper>The Deluxe</Paper>
         </Grid>
-        <Grid item xs m={4}>
-          <Paper>Package 3</Paper>
+        <Grid item xs= {6}>
+          <Paper>The Executive</Paper>
         </Grid>
-        <Grid item xs m={4}>
-          <Paper>Package 4</Paper>
+        <Grid item xs= {6}>
+          <Paper>VIP</Paper>
         </Grid>
       </Grid>
     </main>
