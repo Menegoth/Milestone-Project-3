@@ -7,7 +7,7 @@ import{Box} from '@mui/material'
 function Slides() {
 
     return (
-        <Box sx={{maxWidth:1000,margin:'auto',padding:3}}>
+        <Box sx={{maxWidth:1800,margin:'auto',paddingTop:5,}}>
         <Carousel >
             {
                 CarouselData.map ((item, i) => <Item key={i} item={item} />)
