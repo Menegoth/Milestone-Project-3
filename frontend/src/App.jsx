@@ -10,6 +10,7 @@ import LoginButton from './components/LoginButton';
 import Profile from './components/Profile';
 import Slides from './components/Carousel';
 import Admin from './components/Admin';
+import Cart from './components/Cart';
 
 
 
@@ -23,10 +24,12 @@ function App() {
         <Home />
       <Routes>
         
-        <Route path="/home" element={<Home/>}/>
+        <Route index element={<Home/>}/>
         <Route path="/trips" element={<Trips/>}/>
         <Route path="/trips/:id" element={<TripDetail/>}/>
         <Route path="/admin" element={<Admin/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/tripdetail" element={<TripDetail/>}/>
       </Routes>
     </main>
   </React.Fragment>;

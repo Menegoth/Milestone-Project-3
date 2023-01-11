@@ -1,89 +1,62 @@
-import React,{useState} from 'react';
-import { Typography, Box, InputLabel, TextField, Button, FormControlLabel,RadioGroup,Radio} from "@mui/material";
-import { Link,useNavigate } from "react-router-dom";
-import { useStyles } from "./utils";
+import React, { useState } from "react";
+import {Box, Button, InputLabel, TextField, Typography} from '@mui/material';
 import axios from "axios";
-const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 
-//inputs, fetch/pull through axios
-function Admin() {
-  const classes = useStyles();
-  const navigate = useNavigate();
-  const [inputs, setInputs] = useState({
-    title: "",
-    name: "",
-    imageURL: "",
-    post: "",
-    sport: "other",
+const labelStyles={mb:1,mt:2,fontSize:'24px', fontWeight:'bold'}
 
-    
+const Admin = () => {
+  const[inputs,setInputs]=useState({
+    title:"",
+    description:"",
+    imageURL:"",
   });
-  
-  //Form 
-  return (
-    <div>
-      <form onSubmit>
-        <Box
-          display="flex"
-          flexDirection={'column'}
-          width={"80%"} 
-          border={3}
-          borderRadius={10}
-          borderColor="black"
-          boxShadow="10px 10px 110px black"
-          margin={'auto'}
-          padding={3}
-          marginTop={5}>
-          <Typography
-            textAlign={'center'}
-            fontWeight={'bold'}
-          >CREATE NEW POST
-          </Typography>
+  const handleChange = (e) => {
+    setInputs((prevState) =>({
+      ...prevState,
+      [e.target.name] : e.target.value,
+    }))
+  }
+  const sentRequest= async () => {
+    const res=await axios.trip("http://localhost:5000/api/trip/add", {  
+      title: inputs.title,
+      description: inputs.description,
+      imageURL: inputs.imageURL,
+      user: localStorage.getItem("userId")
+    }).catch(err => console.log(err));
+    const data=await res.data;
+    return data
 
-          <InputLabel className={classes.font} sx={labelStyles}>Title</InputLabel>
-          <TextField 
-          className={classes.font}
-          name="title"
-          
-          value={inputs.title}
-          variant="outlined"/>
-          <InputLabel className={classes.font} sx={labelStyles}>Name</InputLabel>
-          <TextField 
-          className={classes.font}
-          name="name"
-          
-          value={inputs.name}
-          variant="outlined"/>
-          <InputLabel className={classes.font} sx={labelStyles}>ImageURL</InputLabel>
-          <TextField
-           className={classes.font}
-           name="imageURL"
-           
-           value={inputs.imageURL}
-           variant="outlined" />
-           <InputLabel className={classes.font} sx={labelStyles}>
-           Post
-          </InputLabel>
-          <TextField
-            className={classes.font}
-            name="post"
-            
-            value={inputs.post}
-            variant="outlined"
-            multiline={true}
-           />
-           
-           <Button type="submit" variant='contained' sx={{ margin: 1, borderRadius: 4 }} color="warning">Create Post</Button>
-
-           
-       
-
-          
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputs);
+    sentRequest().then((data) => console.log(data))
+  };
+  return (<div>
+      <form onSubmit={handleSubmit}>
+        <Box border={3} 
+        borderColor="pink" 
+        borderRadius={10}
+        boxShadow="10px 10px 20px #ccc" 
+        padding={3}
+        margin={'auto'} 
+        marginTop={10}
+        display='flex' 
+        flexDirection={'column'} 
+        width={"80%"}>
+          <Typography fontWeight={'bold'} padding={3}color="red" variant="h2" textAlign={'center'}>Add a new Trip</Typography>
+          <InputLabel  sx={labelStyles}>Trip Title</InputLabel>
+          <TextField name="title" onChange={handleChange} value={inputs.title} margin='auto' variant="outlined" fontColor="red"/>
+          <InputLabel sx={labelStyles}>Description</InputLabel>
+          <TextField name="description" onChange={handleChange} value={inputs.description} margin='auto' variant="outlined"/>
+          <InputLabel sx={labelStyles}>ImageURL</InputLabel>
+          <TextField name="imageURL" onChange={handleChange} value={inputs.imageURL} margin='auto' variant="outlined"/>
+          <Button type="submit" sx={{marginTop:5,borderRadius:5}} variant="contained" color="warning" >Submit</Button>
         </Box>
       </form>
     </div>
   )
-};
+}
 
 export default Admin
