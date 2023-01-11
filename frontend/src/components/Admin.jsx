@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {Box, Button, InputLabel, TextField, Typography} from '@mui/material';
 import axios from "axios";
 
+
 const labelStyles={mb:1,mt:2,fontSize:'24px', fontWeight:'bold'}
 
 const Admin = () => {
@@ -46,7 +47,7 @@ const Admin = () => {
         width={"80%"}>
           <Typography fontWeight={'bold'} padding={3}color="red" variant="h2" textAlign={'center'}>Add a new Trip</Typography>
           <InputLabel  sx={labelStyles}>Trip Title</InputLabel>
-          <TextField name="title" onChange={handleChange} value={inputs.title} margin='auto' variant="outlined"/>
+          <TextField name="title" onChange={handleChange} value={inputs.title} margin='auto' variant="outlined" fontColor="red"/>
           <InputLabel sx={labelStyles}>Description</InputLabel>
           <TextField name="description" onChange={handleChange} value={inputs.description} margin='auto' variant="outlined"/>
           <InputLabel sx={labelStyles}>ImageURL</InputLabel>
