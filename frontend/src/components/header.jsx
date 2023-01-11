@@ -15,7 +15,8 @@ const Header = () => {
 const [value, setvalue] = useState(second) 
   return <AppBar position='sticky' sx={{height:85, background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,75,200,1) 27%, rgba(214,8,8,1) 52%, rgba(5,17,232,1) 73%, rgba(8,8,8,1) 100%);"}}>
       <Toolbar>
-        <Typography variant="h2" sx={{marginLeft:1}} >ManCations</Typography>
+        <Button LinkComponent={Link} to="/">
+        <Typography variant="h2" sx={{marginLeft:1}} >ManCations</Typography></Button>
         <Box display="flex" margin={'auto'}>
         <Tabs sx={{margin:'auto'}} textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                         <Tab LinkComponent={Link} to="/trips" label="Book A Trip" />
