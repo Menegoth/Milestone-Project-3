@@ -21,7 +21,7 @@ function App() {
       <Header/>
     </header>
       <main>
-        <Home />
+        {/* <Home /> */}
       <Routes>
         
         <Route index element={<Home/>}/>
