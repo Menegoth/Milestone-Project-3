@@ -7,3 +7,5 @@ const TripDetail = () => {
 }
 
 export default TripDetail
+
+//details for individual trip

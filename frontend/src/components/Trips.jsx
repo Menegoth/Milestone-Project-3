@@ -7,3 +7,6 @@ const Trips = () => {
 }
 
 export default Trips
+
+
+// grid displaying all the different trips
