@@ -8,8 +8,9 @@ const labelStyles={mb:1,mt:2,fontSize:'24px', fontWeight:'bold'}
 const Admin = () => {
   const[inputs,setInputs]=useState({
     title:"",
-    description:"",
-    imageURL:"",
+    content:"",
+    image:"",
+    price:"",
   });
   const handleChange = (e) => {
     setInputs((prevState) =>({
@@ -18,10 +19,11 @@ const Admin = () => {
     }))
   }
   const sentRequest= async () => {
-    const res=await axios.trip("http://localhost:5000/api/trip/add", {  
+    const res=await axios.trip("https://milestone-project-3-backend.azurewebsites.net/posts", {  
       title: inputs.title,
-      description: inputs.description,
-      imageURL: inputs.imageURL,
+      content: inputs.content,
+      image: inputs.image,
+      price: inputs.price,
       user: localStorage.getItem("userId")
     }).catch(err => console.log(err));
     const data=await res.data;
@@ -49,9 +51,11 @@ const Admin = () => {
           <InputLabel  sx={labelStyles}>Trip Title</InputLabel>
           <TextField name="title" onChange={handleChange} value={inputs.title} margin='auto' variant="outlined" fontColor="red"/>
           <InputLabel sx={labelStyles}>Description</InputLabel>
-          <TextField name="description" onChange={handleChange} value={inputs.description} margin='auto' variant="outlined"/>
-          <InputLabel sx={labelStyles}>ImageURL</InputLabel>
-          <TextField name="imageURL" onChange={handleChange} value={inputs.imageURL} margin='auto' variant="outlined"/>
+          <TextField name="content" onChange={handleChange} value={inputs.content} margin='auto' variant="outlined"/>
+          <InputLabel sx={labelStyles}>Image</InputLabel>
+          <TextField name="image" onChange={handleChange} value={inputs.image} margin='auto' variant="outlined"/>
+          <InputLabel sx={labelStyles}>Price</InputLabel>
+          <TextField name="price" onChange={handleChange} value={inputs.price} margin='auto' variant="outlined"/>
           <Button type="submit" sx={{marginTop:5,borderRadius:5}} variant="contained" color="warning" >Submit</Button>
         </Box>
       </form>
