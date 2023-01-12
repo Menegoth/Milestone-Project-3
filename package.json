@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@mui/styles": "^5.11.2",
-    "axios": "^1.2.2",
-    "dotenv": "^16.0.3"
-  }
-}
