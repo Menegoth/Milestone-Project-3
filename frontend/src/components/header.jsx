@@ -6,6 +6,7 @@ import {useAuth0} from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import backend from '..'
 
 
 
@@ -20,6 +21,7 @@ const [value, setvalue] = useState(second)
         <Box display="flex" margin={'auto'}>
         <Tabs sx={{margin:'auto'}} textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                         <Tab LinkComponent={Link} to="/trips" label="Book A Trip" />
+                        <Tab LinkComponent={Link} to="/profile" label="Profile" />
                       isAdmin && ( <Tab LinkComponent={Link} to="/admin" label="Admin Add New Trip" />)
                     </Tabs>
                     <Button LinkComponent={Link} to="/cart"  startIcon={<ShoppingCartIcon sx={{ stroke: "white", strokeWidth:3,marginLeft:1}}/>}>
