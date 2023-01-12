@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from './Header';
-import Slides from './Carousel';
-import Footer from './Footer'
+import Header from '../Header';
+import Slides from '../Carousel';
+import Footer from '../Footer'
 import { Paper, Typography, Grid } from '@mui/material'
 
 

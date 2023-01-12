@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material'
 import React from 'react'
-import Slides from './Carousel'
+import Slides from '../Carousel'
 import { Paper, Grid, Box, Button } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 import Card from '@mui/material/Card';
