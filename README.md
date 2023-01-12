@@ -40,7 +40,7 @@
 
 ## Usage
 
-All API calls are made to https://milestone-project-3.azurewebsites.net
+All API calls are made to https://milestone-project-3-backend.azurewebsites.net/
 
 **Routes**
 
