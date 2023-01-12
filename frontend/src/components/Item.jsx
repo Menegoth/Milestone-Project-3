@@ -9,7 +9,7 @@ function Item({item})
             <Typography></Typography>
 
             <Button className='CheckButton' sx={{margin:'auto'}}>
-                Test Button
+                Book Now!
             </Button>
         </Paper>
     )
