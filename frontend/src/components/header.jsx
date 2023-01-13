@@ -11,7 +11,7 @@ import backend from '..'
 
 
 const Header = () => {
-  const {isAdmin}=useAuth0();
+  /*const {isAdmin}=useAuth0();*/
  
 const [value, setvalue] = useState(second) 
   return <AppBar position='sticky' sx={{height:85, background: "linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(11,75,200,1) 27%, rgba(214,8,8,1) 52%, rgba(5,17,232,1) 73%, rgba(8,8,8,1) 100%);"}}>
@@ -27,10 +27,10 @@ const [value, setvalue] = useState(second)
                     <Button LinkComponent={Link} to="/cart"  startIcon={<ShoppingCartIcon sx={{ stroke: "white", strokeWidth:3,marginLeft:1}}/>}>
                       CART
                     </Button></Box>
-        <Box display="flex" marginLeft="auto">
+        {/*<Box display="flex" marginLeft="auto">
           <LoginButton/>
           <LogoutButton/>
-        </Box>
+</Box>*/}
       </Toolbar>
     </AppBar>
 }
