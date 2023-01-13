@@ -22,11 +22,22 @@ const [value, setvalue] = useState(second)
         <Tabs sx={{margin:'auto'}} textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                         <Tab LinkComponent={Link} to="/trips" label="Book A Trip" />
                         <Tab LinkComponent={Link} to="/profile" label="Profile" />
-                      isAdmin && ( <Tab LinkComponent={Link} to="/admin" label="Admin Add New Trip" />)
+                       <Tab LinkComponent={Link} to="/admin" label="Admin Add New Trip" />
                     </Tabs>
                     <Button LinkComponent={Link} to="/cart"  startIcon={<ShoppingCartIcon sx={{ stroke: "white", strokeWidth:3,marginLeft:1}}/>}>
                       CART
                     </Button></Box>
+                    <Box display="flex" marginLeft="auto">
+                      <Button variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
+                          Login 
+                      </Button>
+                      <Button variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
+                          Signup
+                      </Button>
+                      <Button variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
+                          Logout
+                      </Button>
+                    </Box>
         {/*<Box display="flex" marginLeft="auto">
           <LoginButton/>
           <LogoutButton/>
