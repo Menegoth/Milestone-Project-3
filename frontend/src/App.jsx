@@ -5,10 +5,7 @@ import Home from './components/pages/Home'
 import Trips from './components/pages/Trips';
 import TripDetail from './components/pages/TripDetail';
 import {useSelector} from 'react-redux'
-import LogoutButton from './components/LogoutButton';
-import LoginButton from './components/LoginButton';
 import Profile from './components/pages/Profile';
-import Slides from './components/Carousel';
 import Admin from './components/pages/Admin';
 import Cart from './components/Cart';
 import Cancel from './components/pages/Cancel';
@@ -18,6 +15,8 @@ import Auth from './components/Auth';
 
 
 function App() {
+  const isLoggedIn= useSelector(state=>state.isLoggedIn);
+  console.log(isLoggedIn);
  
   return <React.Fragment>
     <header>
