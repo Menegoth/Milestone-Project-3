@@ -1,17 +1,19 @@
 import React, { useState, second, } from 'react';
 import {AppBar, Button, Toolbar, Typography,Box, Tabs, Tab} from '@mui/material'
 import { Link } from "react-router-dom";
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {useAuth0} from '@auth0/auth0-react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import backend from '..'
+import { authActions } from './store';
 
 
 
 const Header = () => {
   /*const {isAdmin}=useAuth0();*/
+  const dispatch= useDispatch()
   const isLoggedIn= useSelector(state=>state.isLoggedIn);
  const [value, setvalue] = useState() 
  
@@ -36,7 +38,7 @@ const Header = () => {
                       <Button LinkComponent={Link} to="/auth" variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
                           Signup
                       </Button></>}
-                      { isLoggedIn && <Button LinkComponent={Link} to="/auth" variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
+                      { isLoggedIn && <Button onClick={() => dispatch(authActions.logout())} LinkComponent={Link} to="/auth" variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
                           Logout
                       </Button>}
                     </Box>
