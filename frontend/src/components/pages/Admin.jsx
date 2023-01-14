@@ -9,8 +9,10 @@ const Admin = () => {
   const[inputs,setInputs]=useState({
     title:"",
     content:"",
-    image:"",
     price:"",
+    image:"",
+    
+    _Id:"63c224ecfaec4fd7fc2d9193",
   });
   const handleChange = (e) => {
     setInputs((prevState) =>({
@@ -19,12 +21,12 @@ const Admin = () => {
     }))
   }
   const sentRequest= async () => {
-    const res=await axios.trip("https://milestone-project-3-backend.azurewebsites.net/posts", {  
+    const res=await axios.post("https://milestone-project-3-backend.azurewebsites.net/posts", {  
       title: inputs.title,
       content: inputs.content,
       image: inputs.image,
       price: inputs.price,
-      user: localStorage.getItem("userId")
+      user: localStorage.getItem("_Id"),
     }).catch(err => console.log(err));
     const data=await res.data;
     return data
