@@ -83,3 +83,10 @@ All API calls are made to https://milestone-project-3-backend.azurewebsites.net/
 | content | string | yes | |
 | price | string | yes | |
 | image | string | yes | |
+
+# Font End
+## Techonologies Used
+
+- React
+- Material UI
+- Axios
