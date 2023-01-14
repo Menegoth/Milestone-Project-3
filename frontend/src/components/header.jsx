@@ -24,11 +24,11 @@ const Header = () => {
         <Box display="flex" margin={'auto'}>
         <Tabs sx={{margin:'auto'}} textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                         <Tab LinkComponent={Link} to="/trips" label="Book A Trip" />
-                        <Tab LinkComponent={Link} to="/profile" label="Profile" />
+                        {/*<Tab LinkComponent={Link} to="/profile" label="Profile" />*/}
                        <Button LinkComponent={Link} to="/cart"  startIcon={<ShoppingCartIcon sx={{ stroke: "white", strokeWidth:3,marginLeft:1}}/>}>
                       CART
                     </Button>
-                    <Tab LinkComponent={Link} to="/admin" label="Admin Add New Trip" />
+                    {/*<Tab LinkComponent={Link} to="/admin" label="Admin Add New Trip" />*/}
                     </Tabs>
                     </Box>
                     <Box display="flex" marginLeft="auto">

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/bf15da1b-48b5-4562-875a-741e93420c10/AppServices/subscriptions/bf15da1b-48b5-4562-875a-741e93420c10/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/final-project-mancations",
+    "appService.deploySubpath": "frontend"
+}

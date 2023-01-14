@@ -1,72 +1,94 @@
-import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, IconButton, Typography, } from "@mui/material";
-import React from "react";
-import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { useNavigate } from "react-router-dom";
-import { useStyles } from "../utils";
-import axios from "axios";
+import React, {useState, useRef, useEffect} from 'react'
+import { CardMedia, CardContent, Card, Typography } from '@mui/material'
+import {useLocation, useNavigate, Link} from "react-router-dom"
 
-const TripDetail = ({ title, content, image, price, userName, id }) => {
-    const classes = useStyles();
+function TripDetail(props) {
+    //navigation to get ID
     const navigate = useNavigate();
-      const sendRequest = async () => {
-        const res = await axios
-          .get(`https://milestone-project-3-backend.azurewebsites.net/posts/${id}`)
-          .catch((err) => console.log(err));
-        const data = await res.data;
-        return data;
-      };
-    
-    
-    return (
-        <div>
-            {" "}
-            <Card
-                sx={{
-                    width: "40%",
-                    margin: "auto",
-                    mt: 2,
-                    padding: 2,
-                    boxShadow: "5px 5px 10px #ccc",
-                    ":hover": {
-                        boxShadow: "10px 10px 20px #ccc",
-                    },
-                }}
-            >
-                <CardHeader
-                    avatar={
-                        <Avatar
-                            className={classes.font}
-                            sx={{ bgcolor: "red" }}
-                            aria-label="recipe"
-                        >
-                            {userName ? userName.charAt(0) : ""}
-                        </Avatar>
-                    }
-                    title={title}
-                />
-                <CardMedia
-                    component="img"
-                    height="194"
-                    image={image}
-                    alt="image"
-                />
+    const location = useLocation();
+    const id = location.pathname.substring(7);
+    console.log(id)
 
-                <CardContent>
-                    <hr />
-                    <br />
-                    <Typography
-                        className={classes.font}
-                        variant="body2"
-                        color="text.secondary"
-                    >
-                        {content}
-                    </Typography>
-                    <Typography>Price:${price}</Typography>
-                </CardContent>
-            </Card>
-        </div>
-    );
-};
+    //state variables
+    const [data, setData] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+    const isMounted = useRef(false);
 
-export default TripDetail;
+    //run once to fetch data from api
+    useEffect(() => {
+      async function getData() {
+        const response = await fetch(` https://milestone-project-3-backend.azurewebsites.net/posts${id}`);
+        const result = await response.json();
+        setData(result);
+        console.log(result);
+      }
+
+      getData();
+    }, []);
+
+    //run after first render to re-render main page
+    useEffect(() => {
+      if (isMounted.current) {
+        setIsLoading(false)
+      } else {
+        isMounted.current = true;
+      }
+    }, [data])
+
+    //handle submit on delete
+    async function handleSubmit(event) {
+      event.preventDefault();
+      await fetch(`https://milestone-project-3-backend.azurewebsites.net/posts${id}`, {
+        method: "DELETE"
+      });
+
+      navigate("/posts");
+ 
+    }
+
+    //renders if data not loaded
+    if (isLoading) {
+      return (
+        <div>Loading...</div>
+      )
+    }
+
+    //main render
+    return(
+      <div className='post-details'> 
+        
+        <Card >
+          <CardContent>
+              <Typography gutterBottom variant="h4">
+                <h1>{data.title}</h1>
+              </Typography>
+              <Typography gutterBottom variant="h6">
+                <h4>By {data.username}</h4>
+              </Typography>
+              <hr></hr>
+              <CardMedia
+              component="img"
+              height="400"
+              width={900}
+              image={`${data.image}`}
+              alt="Post Image"
+              />
+              
+              <Typography variant="body1">
+              {data.post}
+              
+              </Typography>
+              <hr></hr>
+              
+              <Typography varient='h4'>What do you think?</Typography>
+
+              
+          </CardContent>
+        </Card>
+      </div>
+      
+    )
+  
+  }
+
+export default TripDetail
