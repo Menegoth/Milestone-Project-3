@@ -45,7 +45,7 @@ const Trips = () => {
               </Typography>
           </CardContent>
           <CardActions>
-              <Button size="small">Learn More</Button>
+              <Button component={Link} to='/tripdetailone' size="small">Learn More</Button>
             </CardActions>
         </Card>
         </Grid>
@@ -67,7 +67,7 @@ const Trips = () => {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small">Learn More</Button>
+            <Button component={Link} to="/tripdetailtwo" size="small">Learn More</Button>
         </CardActions>
     </Card>
         </Grid>
@@ -84,11 +84,11 @@ const Trips = () => {
             The Executive Package
             </Typography>
             <Typography variant="body2" color="text.secondary">
-            Need a quick weekend getaway? Book the basics today!
+            Only for those who like to live large!
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small">Learn More</Button>
+            <Button component={Link} to='/tripdetailthree' size="small">Learn More</Button>
         </CardActions>
           </Card>
         </Grid>

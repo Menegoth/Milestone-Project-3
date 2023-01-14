@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "../utils";
 import axios from "axios";
 
-const TripDetail = ({ title, content, image, price, userName, id }) => {
+const TripDetailThree = ({ title, content, image, price, userName, id }) => {
     const classes = useStyles();
     const navigate = useNavigate();
       const sendRequest = async () => {
@@ -34,21 +34,14 @@ const TripDetail = ({ title, content, image, price, userName, id }) => {
                 }}
             >
                 <CardHeader
-                    avatar={
-                        <Avatar
-                            className={classes.font}
-                            sx={{ bgcolor: "red" }}
-                            aria-label="recipe"
-                        >
-                            {userName ? userName.charAt(0) : ""}
-                        </Avatar>
-                    }
-                    title={title}
+                    np
+                    title='The VIP'
                 />
                 <CardMedia
                     component="img"
                     height="194"
-                    image={image}
+                    // image={image}
+                    src="https://images.pexels.com/photos/415999/pexels-photo-415999.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="image"
                 />
 
@@ -60,14 +53,13 @@ const TripDetail = ({ title, content, image, price, userName, id }) => {
                         variant="body2"
                         color="text.secondary"
                     >
-                        {content}
+                        High Rollers, come along! The VIP package isn't designed for your average Joe, it's for those who want to experience peak degeneracy. The VIP comes with access to a luxury suite and access to the hottest clubs!
                     </Typography>
-                    <Typography>Price:${price}</Typography>
-                    
+                    <Typography>Price:$4999</Typography>
                 </CardContent>
             </Card>
         </div>
     );
 };
 
-export default TripDetail;
+export default TripDetailThree;

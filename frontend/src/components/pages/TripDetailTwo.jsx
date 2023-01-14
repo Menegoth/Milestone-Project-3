@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useStyles } from "../utils";
 import axios from "axios";
 
-const TripDetail = ({ title, content, image, price, userName, id }) => {
+const TripDetailTwo = ({ title, content, image, price, userName, id }) => {
     const classes = useStyles();
     const navigate = useNavigate();
       const sendRequest = async () => {
@@ -34,21 +34,14 @@ const TripDetail = ({ title, content, image, price, userName, id }) => {
                 }}
             >
                 <CardHeader
-                    avatar={
-                        <Avatar
-                            className={classes.font}
-                            sx={{ bgcolor: "red" }}
-                            aria-label="recipe"
-                        >
-                            {userName ? userName.charAt(0) : ""}
-                        </Avatar>
-                    }
-                    title={title}
+                    np
+                    title='The Deluxe Package'
                 />
                 <CardMedia
                     component="img"
                     height="194"
-                    image={image}
+                    // image={image}
+                    src="https://images.pexels.com/photos/2507007/pexels-photo-2507007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt="image"
                 />
 
@@ -60,14 +53,13 @@ const TripDetail = ({ title, content, image, price, userName, id }) => {
                         variant="body2"
                         color="text.secondary"
                     >
-                        {content}
+                        The Deluxe Package is for those who want to get away in style! Enjoy the luxuries of a beach front stay, complete with food, drink, and entertainment!
                     </Typography>
-                    <Typography>Price:${price}</Typography>
-                    
+                    <Typography>Price:$999</Typography>
                 </CardContent>
             </Card>
         </div>
     );
 };
 
-export default TripDetail;
+export default TripDetailTwo;
