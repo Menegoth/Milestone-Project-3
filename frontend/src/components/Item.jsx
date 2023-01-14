@@ -1,17 +1,18 @@
 import { Paper, Button } from '@mui/material'
-import { Typography } from '@mui/material'
+import { Typography, Box } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 function Item({item})
 {
     return(
-        <Paper>
-            <img src={item.image} alt='travel' style={{width:'100%', height:'50vh'}}/>
-            <Typography></Typography>
+        <Box textAlign='center'>
+            <Paper >
+                <img src={item.image} alt='travel' style={{width:'100%', height:'50vh'}}/>
 
-            <Button className='CheckButton' sx={{margin:'auto'}}>
-                Book Now!
-            </Button>
-        </Paper>
+                <Button component={Link} to='/trips' variant='text'>Book Now!</Button>
+
+            </Paper>
+        </Box>
     )
 }
 

@@ -1,30 +1,21 @@
 import { Typography } from '@mui/material'
 import React from 'react'
-import Slides from './Carousel'
+import Slides from '../Carousel'
 import { Paper, Grid, Box, Button } from '@mui/material'
-import { makeStyles } from '@mui/styles'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-
-const useStyles = makeStyles({
-  gridContainer:  {
-    paddingLeft: '20px',
-    paddingRight: '20px',
-  }
-})
-
 
 const Trips = () => {
   
   return (
     <main>
       <Slides />
-      <Typography variant='h3'>
+      <Typography variant='h3' textAlign='center'>
         Check out our all inclusive packages below!
       </Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={2} margin='auto'>
         <Grid item xs={12} sm={4}>
         <Card sx={{ maxWidth: 345, minHeight: 400 }}>
         <CardMedia
@@ -42,7 +33,6 @@ const Trips = () => {
               </Typography>
           </CardContent>
           <CardActions>
-              <Button size="small">Book</Button>
               <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
@@ -65,7 +55,6 @@ const Trips = () => {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small">Book</Button>
             <Button size="small">Learn More</Button>
         </CardActions>
     </Card>
@@ -87,7 +76,6 @@ const Trips = () => {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button size="small">Book</Button>
             <Button size="small">Learn More</Button>
         </CardActions>
   </Card>
@@ -103,12 +91,12 @@ const Trips = () => {
           The Royal Route
         </Typography>
         <Box
+          variant='contain'
           display='flex'
           justifyContent='center'
           alignItems='center'
-          maxHeight='70vh'
           padding={5}>
-        <img src='https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg' alt='Maldives' style={{display: 'flex', justifyContent: 'center', width: '85%'}} />
+        <img src='https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg' alt='Maldives' style={{display: 'flex', justifyContent: 'center', width: '85%', margin: 'auto'}} />
         </Box>
         <Typography align='center'>
           It's time to indulge and treat yourself like Royalty. Relax, dine, and explore like royalty in the tropical oasis of the Maldives islands. Our most exclusive package, curated for ManCations Members.
