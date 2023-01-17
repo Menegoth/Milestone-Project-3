@@ -3,11 +3,9 @@ import React from "react";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { useNavigate } from "react-router-dom";
-import { useStyles } from "../utils";
 import axios from "axios";
 
 const TripDetailThree = ({ title, content, image, price, userName, id }) => {
-    const classes = useStyles();
     const navigate = useNavigate();
       const sendRequest = async () => {
         const res = await axios
@@ -49,7 +47,6 @@ const TripDetailThree = ({ title, content, image, price, userName, id }) => {
                     <hr />
                     <br />
                     <Typography
-                        className={classes.font}
                         variant="body2"
                         color="text.secondary"
                     >
