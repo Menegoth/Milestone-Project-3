@@ -37,14 +37,14 @@ const DrawerComp = () => {
                         </ListItemText>
                     </ListItemIcon>
                 </ListItemButton>
-                <ListItemButton onClick={()=>setOpen(false)}LinkComponent={Link} to='/trips'>
+                <ListItemButton onClick={()=>setOpen(false)}LinkComponent={Link} to="/auth">
                     <ListItemIcon>
                         <ListItemText>
                             Login
                         </ListItemText>
                     </ListItemIcon>
                 </ListItemButton>
-                <ListItemButton onClick={()=>setOpen(false)}LinkComponent={Link} to='/trips'>
+                <ListItemButton onClick={()=>setOpen(false)}LinkComponent={Link} to="/auth">
                     <ListItemIcon>
                         <ListItemText>
                             Sign Up
