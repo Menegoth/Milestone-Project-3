@@ -16,6 +16,7 @@ import TripDetailOne from './components/pages/TripDetailOne';
 import TripDetailTwo from './components/pages/TripDetailTwo';
 import TripDetailThree from './components/pages/TripDetailThree';
 import { createTheme, colors, ThemeProvider } from '@mui/material';
+import TripDetailFour from './components/pages/TripDetailFour';
 
 const theme= createTheme({
   palette: {
@@ -56,6 +57,7 @@ function App() {
           <Route path='/tripdetailone' element={<TripDetailOne/>}/>
           <Route path='/tripdetailtwo' element={<TripDetailTwo/>} />
           <Route path='/tripdetailthree' element={<TripDetailThree/>} />
+          <Route path='/tripdetailfour' element={<TripDetailFour/>} />
         </Routes>
       </main>
     </CurrentUserProvider>
