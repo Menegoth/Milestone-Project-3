@@ -18,6 +18,7 @@ import TripDetailThree from './components/pages/TripDetailThree';
 
 
 
+
 function App() {
   const isLoggedIn= useSelector(state=>state.isLoggedIn);
   console.log(isLoggedIn);
@@ -25,7 +26,7 @@ function App() {
   return <React.Fragment>
     <CurrentUserProvider>
       <header>
-        <Header/>
+        <Header />
       </header>
         <main>
           {/* <Home /> */}

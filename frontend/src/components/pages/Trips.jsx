@@ -97,7 +97,13 @@ const Trips = () => {
         bgcolor='#CCCCCC'
         sx={{
           margin:'auto',
-          minWidth:'100vh'
+          width: {
+              xs: 300,
+              sm: 400,
+              md: 500,
+              lg: 600,
+              xl: 700,
+            }
         }}>
         
         <Typography variant= 'h2' align='center' theme={theme} fontWeight='500'>
@@ -108,7 +114,8 @@ const Trips = () => {
           display='flex'
           justifyContent='center'
           alignItems='center'
-          padding={5}>
+          padding={5}
+          >
         <img src='https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg' alt='Maldives' style={{display: 'flex', justifyContent: 'center', width: '85%', margin: 'auto'}} />
         </Box>
         <Box

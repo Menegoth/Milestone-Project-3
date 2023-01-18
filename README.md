@@ -84,9 +84,11 @@ All API calls are made to https://milestone-project-3-backend.azurewebsites.net/
 | price | string | yes | |
 | image | string | yes | |
 
-# Font End
+# Front End
 ## Techonologies Used
 
 - React
 - Material UI
 - Axios
+
+Work completed by Jesus Beltran: Created design and layout of landing page and various component pages. Handled making the website responsive. Contributed to styling and overall design elements of the application.
