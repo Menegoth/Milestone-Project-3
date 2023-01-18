@@ -27,9 +27,9 @@ const Trips = () => {
       <Typography color={'#6f7991'} variant='h3' textAlign='center'>
         Check out our all inclusive packages below!
       </Typography>
-      <Grid container spacing={2} margin='auto' paddingBottom='20px'>
-        <Grid item xs={12} sm={4}>
-        <Card sx={{ maxWidth: 345, minHeight: 400 }}>
+      <Grid margin={'auto'} padding={5} container spacing={2} paddingBottom='20px'>
+        <Grid display="flex" justifyContent="center" alignItems="center" item xs={12} sm={4}>
+        <Card sx={{ maxWidth: 345, minHeight: 400,}}>
         <CardMedia
             component="img"
             alt="fishing trip"
@@ -45,12 +45,12 @@ const Trips = () => {
               </Typography>
           </CardContent>
           <CardActions>
-              <Button component={Link} to='/tripdetailone' size="small">Learn More</Button>
+              <Button variant='contained' color='primary' component={Link} to='/tripdetailone' size="small">Learn More</Button>
             </CardActions>
         </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4}>
+        <Grid display="flex" justifyContent="center" alignItems="center" item xs={12} sm={4}>
         <Card sx={{ maxWidth: 345, minHeight: 400 }}>
         <CardMedia
             component="img"
@@ -67,11 +67,11 @@ const Trips = () => {
             </Typography>
         </CardContent>
         <CardActions>
-            <Button component={Link} to="/tripdetailtwo" size="small">Learn More</Button>
+            <Button variant='contained' color='primary' component={Link} to="/tripdetailtwo" size="small" >Learn More</Button>
         </CardActions>
     </Card>
         </Grid>
-        <Grid item xs={12} sm={4} >
+        <Grid display="flex" justifyContent="center" alignItems="center" item xs={12} sm={4} >
         <Card sx={{ maxWidth: 345, minHeight: 400 }}>
         <CardMedia
             component="img"
@@ -84,23 +84,29 @@ const Trips = () => {
             The Executive Package
             </Typography>
             <Typography variant="body2" color="text.secondary">
-            Only for those who like to live large!
+            Only for those who like to live large! What happens in Vegas stays in Vegas!
             </Typography>
         </CardContent>
         <CardActions>
-            <Button component={Link} to='/tripdetailthree' size="small">Learn More</Button>
+            <Button variant='contained' color='primary' component={Link} to='/tripdetailthree' size="small" >Learn More</Button>
         </CardActions>
           </Card>
         </Grid>
       </Grid>
-      <Box
-        bgcolor='#1f232e'
-        sx={{
-          margin:'auto',
-          minWidth:'100vh'
-        }}>
+       <Box
+       bgcolor='#CCCCCC'
+       sx={{
+         margin:'auto',
+         width: {
+             xs: 300,
+             sm: 400,
+             md: 500,
+             lg: 600,
+             xl: 700,
+           }
+       }}>
         
-        <Typography color={'#6f7991'} variant= 'h2' align='center' theme={theme} fontWeight='500'>
+        <Typography color={'#6f7991'} variant= 'h2' align='center' theme={theme} fontWeight='500' backgroundColor='#1f232e'>
           The Royal Route
         </Typography>
         <Box

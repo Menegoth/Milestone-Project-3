@@ -40,7 +40,8 @@ const Admin = () => {
   return (<div>
       <form onSubmit={handleSubmit}>
         <Box border={3} 
-        borderColor="pink" 
+        backgroundColor="#6f7991"
+        borderColor="#6f7991" 
         borderRadius={10}
         boxShadow="10px 10px 20px #ccc" 
         padding={3}
@@ -49,7 +50,7 @@ const Admin = () => {
         display='flex' 
         flexDirection={'column'} 
         width={"80%"}>
-          <Typography fontWeight={'bold'} padding={3}color="red" variant="h2" textAlign={'center'}>Add a new Trip</Typography>
+          <Typography fontWeight={'bold'} padding={3}color="#1f232e" variant="h2" textAlign={'center'}>Add a new Trip</Typography>
           <InputLabel  sx={labelStyles}>Trip Title</InputLabel>
           <TextField name="title" onChange={handleChange} value={inputs.title} margin='auto' variant="outlined" fontColor="red"/>
           <InputLabel sx={labelStyles}>Description</InputLabel>
@@ -58,7 +59,7 @@ const Admin = () => {
           <TextField name="image" onChange={handleChange} value={inputs.image} margin='auto' variant="outlined"/>
           <InputLabel sx={labelStyles}>Price</InputLabel>
           <TextField name="price" onChange={handleChange} value={inputs.price} margin='auto' variant="outlined"/>
-          <Button type="submit" sx={{marginTop:5,borderRadius:5}} variant="contained" color="warning" >Submit</Button>
+          <Button type="submit" sx={{marginTop:5,borderRadius:5}} variant="contained" color="primary" >Submit</Button>
         </Box>
       </form>
     </div>

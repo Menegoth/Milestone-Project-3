@@ -28,6 +28,7 @@ const theme= createTheme({
   },
 })
 
+
 function App() {
   const isLoggedIn= useSelector(state=>state.isLoggedIn);
   console.log(isLoggedIn);
@@ -36,7 +37,7 @@ function App() {
     <ThemeProvider theme={theme}>
     <CurrentUserProvider>
       <header>
-        <Header/>
+        <Header />
       </header>
         <main>
           {/* <Home /> */}

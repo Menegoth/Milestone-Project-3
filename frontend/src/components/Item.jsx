@@ -12,12 +12,12 @@ function Item({item})
 {
     return(
         <Box textAlign='center'>
-            <Paper eleveation={24}>
+            <Box>
                 <img src={item.image} alt='travel' style={{width:'100%', height:'50vh', padding:'1em'}}/>
 
-                <Button component={Link} to='/trips' variant='contained' style={{backgroundColor:'black', borderRadius:'40px', marginBottom:'10px'}}>Book Now!</Button>
+                <Button component={Link} to='/trips' variant='contained' style={{backgroundColor:'#6f7991', borderRadius:'40px', marginBottom:'10px'}}>Book Now!</Button>
 
-            </Paper>
+            </Box>
         </Box>
     )
 }
