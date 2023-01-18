@@ -128,7 +128,7 @@ const Trips = () => {
           display='flex'
           justifyContent='center'
           backgroundColor='#1f232e'>
-          <Button component={Link} to='/trips' variant='contained' theme={bottomButton} style={{backgroundColor:'#6f7991'}}>Learn More</Button>
+          <Button component={Link} to='/tripdetailfour' variant='contained' theme={bottomButton} style={{backgroundColor:'#6f7991'}}>Learn More</Button>
         </Box>
         
        
