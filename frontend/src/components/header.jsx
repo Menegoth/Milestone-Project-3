@@ -22,12 +22,12 @@ const Header = () => {
   const isMatch = useMediaQuery(theme.breakpoints.down('md'));
   console.log(isMatch)
  
- return <AppBar position='sticky' sx={{height:75, background: "#bfcfff"}}>
+ return <AppBar position='sticky' sx={{height:75, background: "#6f7991"}}>
       <Toolbar>
         {isMatch ? (
           <>
             <Button LinkComponent={Link} to="/">
-              <Typography variant="h4" sx={{marginLeft:1}} >ManCations</Typography>
+              <Typography variant="h4" sx={{marginLeft:1,}} >ManCations</Typography>
             </Button>
             <DrawerComp />
           </>
@@ -41,9 +41,8 @@ const Header = () => {
           <Grid item xs={6}>
               <Tabs sx={{margin:'auto'}} textColor="inherit" value={value} onChange={(e, val) => setvalue(val)}>
                   <Tab LinkComponent={Link} to="/trips" label="Book A Trip" />
-                  <Tab LinkComponent={Link} to="/profile" label="Profile" />
                   <Tab LinkComponent={Link} to="/admin" label="Admin Add New Trip" />
-                  <Button LinkComponent={Link} to="/cart"  startIcon={<ShoppingCartIcon sx={{ stroke: "white", strokeWidth:3,marginLeft:1}}/>}>
+                  <Button LinkComponent={Link} to="/cart"  startIcon={<ShoppingCartIcon sx={{ stroke: "primary", strokeWidth:3,marginLeft:1}}/>}>
                     CART
                   </Button>
                 </Tabs>
@@ -51,13 +50,13 @@ const Header = () => {
           {/* <Grid item xs={1} /> */}
           <Grid item xs={3}>       
               <Box display="flex" >
-                { !isLoggedIn && <><Button LinkComponent={Link} to="/auth" variant='contained' sx={{marginLeft:'auto',borderRadius:6, background:'#1F232E'}}>
+                { !isLoggedIn && <><Button LinkComponent={Link} to="/auth" variant='contained' sx={{marginLeft:'auto',borderRadius:6,}}color="primary">
                     Login 
                 </Button>
-                <Button LinkComponent={Link} to="/auth" variant='contained' sx={{marginLeft:1,borderRadius:6, background:'#1F232E'}}>
+                <Button LinkComponent={Link} to="/auth" variant='contained' sx={{marginLeft:1,borderRadius:6}} color="primary">
                     Signup
                 </Button></>}
-                { isLoggedIn && <Button onClick={() => dispatch(authActions.logout())} LinkComponent={Link} to="/auth" variant='contained' sx={{margin:1,borderRadius:6}} color="warning">
+                { isLoggedIn && <Button onClick={() => dispatch(authActions.logout())} LinkComponent={Link} to="/auth" variant='contained' sx={{margin:1,borderRadius:6}} color="primary">
                     Logout
                 </Button>}
               </Box>

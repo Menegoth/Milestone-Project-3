@@ -20,13 +20,6 @@ const DrawerComp = () => {
                         </ListItemText>
                     </ListItemIcon>
                 </ListItemButton>
-                <ListItemButton onClick={()=>setOpen(false)}LinkComponent={Link} to='/profile'>
-                    <ListItemIcon>
-                        <ListItemText>
-                            Profile
-                        </ListItemText>
-                    </ListItemIcon>
-                </ListItemButton>
                 <ListItemButton onClick={()=>setOpen(false)}LinkComponent={Link} to='/admin'>
                     <ListItemIcon>
                         <ListItemText>

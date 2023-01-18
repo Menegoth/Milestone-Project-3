@@ -5,10 +5,20 @@
 }
 
 body {
-  background-color: white;
+  background-color: #1f232e;
   
 }
 
 .app {
   margin:auto;
 }
+
+.MuiBox-root.css-1ptypb2 {
+  background-color:#6f7991;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.css-1qsxyqj-MuiButtonBase-root-MuiButton-root{
+color:#1f232e;
+}
+
+

@@ -54,12 +54,12 @@ const Auth = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Box maxWidth={400} display="flex" flexDirection={"column"} alignItems="center" justifyContent={"center"} boxShadow="15px 15px 25px #ccc" padding={3} margin='auto' marginTop={5} borderRadius={5}>
+        <Box color={"inherit"} maxWidth={400} display="flex" flexDirection={"column"} alignItems="center" justifyContent={"center"} boxShadow="15px 15px 25px #ccc" padding={3} margin='auto' marginTop={5} borderRadius={5}>
           <Typography  variant="h2" padding={3} textAlign="center">{isSignup ? "Signup" : "Login"}</Typography>
           <TextField name="username" onChange={handleChange} placeholder="Username" value={inputs.username} margin="normal"/>
           { isSignup && <TextField name="email" onChange={handleChange} type={"email"} placeholder="Email"  value={inputs.email} margin="normal"/>}
           <TextField name="password" onChange={handleChange} type={"password"} placeholder="Password"  value={inputs.password} margin="normal"/>
-          <Button type='submit' variant='contained' sx={{borderRadius:3, marginTop:1}} color="warning">Submit</Button>
+          <Button type='submit' variant='contained' sx={{borderRadius:3, marginTop:1}} color="primary">Submit</Button>
           <Button onClick={()=>setIsSignup(!isSignup)} sx={{borderRadius:3, marginTop:1}} >Change to {isSignup ? "Login" : "Signup"}</Button>
         </Box>
       </form>

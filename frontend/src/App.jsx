@@ -15,8 +15,18 @@ import CurrentUserProvider from './contexts/CurrentUser';
 import TripDetailOne from './components/pages/TripDetailOne';
 import TripDetailTwo from './components/pages/TripDetailTwo';
 import TripDetailThree from './components/pages/TripDetailThree';
+import { createTheme, colors, ThemeProvider } from '@mui/material';
 
-
+const theme= createTheme({
+  palette: {
+    primary: {
+      main: '#ebf2fa',
+    },
+    secondary: {
+      main: '#448aff',
+    },
+  },
+})
 
 
 function App() {
@@ -24,6 +34,7 @@ function App() {
   console.log(isLoggedIn);
  
   return <React.Fragment>
+    <ThemeProvider theme={theme}>
     <CurrentUserProvider>
       <header>
         <Header />
@@ -48,6 +59,7 @@ function App() {
         </Routes>
       </main>
     </CurrentUserProvider>
+    </ThemeProvider>
   </React.Fragment>;
 }
 

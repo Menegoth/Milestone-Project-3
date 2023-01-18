@@ -4,11 +4,19 @@
   
 
 ## Explanation
-
+-Welcome to Mancations, the site to book all your manly trips with the boys!  Backend is functioning with the Authorization but we are still working on integrating the cart and trips with the backend data.  Having errors currently with the axios calls and still working on these features. 
+## Who Did What?
+-Antonio created the entire backend
+-Jesus , Created design and layout of landing page and various component pages. Handled making the website responsive. Contributed to styling and overall design elements of the application.
+-Ryan, created Authorization with Auth0 then Axios, Created header and routes for pages, admin page and the cart feature which is still in progress. 
   
 
 # Front End
-
+# Technoligies Used
+- React
+- Material UI
+- Axios
+- React-Redux
   
 
 ----
@@ -84,11 +92,3 @@ All API calls are made to https://milestone-project-3-backend.azurewebsites.net/
 | price | string | yes | |
 | image | string | yes | |
 
-# Front End
-## Techonologies Used
-
-- React
-- Material UI
-- Axios
-
-Work completed by Jesus Beltran: Created design and layout of landing page and various component pages. Handled making the website responsive. Contributed to styling and overall design elements of the application.

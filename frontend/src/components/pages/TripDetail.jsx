@@ -1,4 +1,26 @@
-import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, IconButton, Typography, } from "@mui/material";
+import React from 'react'
+import TripDetailTwo from '../TripDetailTwo'
+
+const TripDetail = () => {
+  return (
+    <div>
+        <TripDetailTwo/>
+    </div>
+  )
+}
+
+export default TripDetail
+
+
+
+
+
+
+
+
+
+
+/*import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, IconButton, Typography, } from "@mui/material";
 import React from "react";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
@@ -70,4 +92,4 @@ const TripDetail = ({ title, content, image, price, userName, id }) => {
     );
 };
 
-export default TripDetail;
+export default TripDetail;*/
