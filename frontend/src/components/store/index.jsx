@@ -1,28 +1,25 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const storeSlice = createSlice({
+import { combineReducers, configureStore, applyMiddleware, createStore } from '@reduxjs/toolkit';
+import authSlice from '../Redux/authSlice';
+import cartSlice from "../Redux/cartSlice";
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
+//reducers
+import {cartReducer} from '.././Redux/reducers/cartReducers';
+import { getProductsReducer, getProductDetailsReducer } from '../Redux/reducers/productReducers';
+
+const reducer= combineReducers({
+  cart: cartReducer,
+  getProducts: getProductsReducer,
+  getProductDetails: getProductDetailsReducer,
 })
 
-const authSlice = createSlice({
-  name: "auth",
-  initialState: { isLoggedIn: false },
-  reducers: {
-    login(state) {
-      state.isLoggedIn = true;
-    },
-    logout(state) {
-      localStorage.removeItem("userId");
-      state.isLoggedIn = false;
-    },
-  },
-});
+const middlware = [thunk]
 
-export const authActions = authSlice.actions;
-export const storeActions= storeSlice.actions;
+const store= configureStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(...middlware))
+)
 
-export const store = configureStore({
-  reducer: authSlice.reducer,
-  reducer: storeSlice.reducer,
-});
-
+export default store

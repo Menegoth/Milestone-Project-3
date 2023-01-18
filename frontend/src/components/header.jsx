@@ -7,7 +7,7 @@ import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import backend from '..'
-import { authActions } from './store';
+import { authActions } from '../components/Redux/authSlice';
 
 
 

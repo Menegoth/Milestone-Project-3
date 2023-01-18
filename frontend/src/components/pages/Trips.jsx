@@ -7,6 +7,14 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+
+//components
+import CartItem from '../CartItem';
+
+//actions
+import { getProducts as listProducts } from '../Redux/actions/productActions';
 
 const theme = createTheme({
   typography: {
@@ -20,6 +28,13 @@ const bottomButton = createTheme({
 })
 
 const Trips = () => {
+  const dispatch=useDispatch();
+  const getProducts=useSelector(state => state.getProducts);
+  const {products, loading, error}= getProducts;
+
+  useEffect(() =>{
+    dispatch(listProducts());
+  },[dispatch])
   
   return (
     <main>
