@@ -24,7 +24,7 @@ const Trips = () => {
   return (
     <main>
       <Slides />
-      <Typography variant='h3' textAlign='center'>
+      <Typography color={'#6f7991'} variant='h3' textAlign='center'>
         Check out our all inclusive packages below!
       </Typography>
       <Grid container spacing={2} margin='auto' paddingBottom='20px'>
@@ -94,16 +94,17 @@ const Trips = () => {
         </Grid>
       </Grid>
       <Box
-        bgcolor='#CCCCCC'
+        bgcolor='#1f232e'
         sx={{
           margin:'auto',
           minWidth:'100vh'
         }}>
         
-        <Typography variant= 'h2' align='center' theme={theme} fontWeight='500'>
+        <Typography color={'#6f7991'} variant= 'h2' align='center' theme={theme} fontWeight='500'>
           The Royal Route
         </Typography>
         <Box
+          backgroundColor='#1f232e'
           variant='contain'
           display='flex'
           justifyContent='center'
@@ -112,15 +113,16 @@ const Trips = () => {
         <img src='https://images.pexels.com/photos/1591373/pexels-photo-1591373.jpeg' alt='Maldives' style={{display: 'flex', justifyContent: 'center', width: '85%', margin: 'auto'}} />
         </Box>
         <Box
-        padding={3}>
-          <Typography align='center' theme={theme} fontWeight='200' variant='body1'>
+        padding={3} backgroundColor='#1f232e'>
+          <Typography color={'#6f7991'} align='center' theme={theme} fontWeight='200' variant='body1'>
             It's time to indulge and treat yourself like Royalty. Relax, dine, and explore like royalty in the tropical oasis of the Maldives islands. Our most exclusive package, curated for ManCations Members.
           </Typography>
         </Box>
         <Box
           display='flex'
-          justifyContent='center'>
-          <Button component={Link} to='/trips' variant='contained' theme={bottomButton} style={{backgroundColor:'black'}}>Learn More</Button>
+          justifyContent='center'
+          backgroundColor='#1f232e'>
+          <Button component={Link} to='/trips' variant='contained' theme={bottomButton} style={{backgroundColor:'#6f7991'}}>Learn More</Button>
         </Box>
         
        

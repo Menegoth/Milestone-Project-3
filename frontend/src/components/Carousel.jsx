@@ -8,7 +8,7 @@ function Slides() {
 
     return (
         <Box sx={{maxWidth:1000,margin:'auto',paddingTop:5,}}>
-        <Carousel >
+        <Carousel>
             {
                 CarouselData.map ((item, i) => <Item key={i} item={item} />)
             }
