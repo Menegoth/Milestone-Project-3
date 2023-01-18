@@ -1,6 +1,6 @@
 
 # Milestone Project 3
-
+# https://final-project-mancations.azurewebsites.net/
   
 
 ## Explanation
@@ -9,7 +9,8 @@
 -Antonio created the entire backend
 -Jesus , Created design and layout of landing page and various component pages. Handled making the website responsive. Contributed to styling and overall design elements of the application.
 -Ryan, created Authorization with Auth0 then Axios, Created header and routes for pages, admin page and the cart feature which is still in progress. 
-  
+
+
 
 # Front End
 # Technoligies Used
